@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menu.Menu_Detail_Massage">
+    <LinearLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textColor="@color/mainTextDark"
+            android:text="Elfira"
+            android:textSize="20dp"
+            android:id="@+id/namapengirim"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listdetailpesan"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+        <EditText
+            android:id="@+id/isipesan"
+            android:hint="Masukan pesan"
+            android:textColor="@color/mainTextDark"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <Button
+            android:textSize="20dp"
+            android:text="Kirim"
+            android:background="@drawable/m_button"
+            android:id="@+id/kirimpesan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+</ScrollView>
