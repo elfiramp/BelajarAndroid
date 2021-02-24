@@ -19,6 +19,6 @@
     <color name="graylight">#556B2F</color>
     <color name="aqua">#00FFFF</color>
     <color name="green">#98FB98</color>
-
+    <color name="transparant">#00000000</color>
 
 </resources>

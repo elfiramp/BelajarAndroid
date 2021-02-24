@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bckgroundijo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu.Menu_Detail_Massage">
@@ -14,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:textColor="@color/mainTextDark"
+            android:textColor="@color/white"
             android:text="Elfira"
             android:textSize="20dp"
             android:id="@+id/namapengirim"
@@ -22,9 +23,19 @@
             android:layout_height="30dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listdetailpesan"
+            android:background="@drawable/bckgroundijo"
             android:layout_width="match_parent"
-            android:layout_height="300dp"/>
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@drawable/bckgroundijo"
+            android:layout_marginTop="10dp"
+            android:id="@+id/listdetailpesan1"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"/>
         <EditText
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/isipesan"
             android:hint="Masukan pesan"
             android:textColor="@color/mainTextDark"
@@ -32,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
         <Button
+            android:layout_marginBottom="25dp"
             android:textSize="20dp"
             android:text="Kirim"
             android:background="@drawable/m_button"

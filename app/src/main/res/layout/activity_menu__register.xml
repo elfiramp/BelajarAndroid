@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bckgroundijo"
     android:layout_height="match_parent"
     tools:context=".Menu.Menu_Register">
     <LinearLayout
@@ -16,6 +17,7 @@
 
 
 <androidx.cardview.widget.CardView
+    app:cardBackgroundColor="@color/transparant"
     app:cardCornerRadius="15dp"
     android:layout_marginRight="25dp"
     android:layout_marginLeft="25dp"
@@ -36,10 +38,12 @@
             <!--   untuk logo-->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:textColorHint="@color/white"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                      android:layout_width="match_parent"
+                    android:textColorHint="@color/white"
                     android:hint="@string/InsertEmail"
                     android:id="@+id/email"
                     android:layout_height="wrap_content"/>
@@ -56,6 +60,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:textColorHint="@color/white"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -73,6 +78,7 @@
         <!--Email-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:textColorHint="@color/white"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -91,6 +97,7 @@
             <!-- Alamat Rumah-->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:textColorHint="@color/white"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -107,14 +114,20 @@
             android:layout_height="wrap_content">
             <!-- Jenis Kelamin-->
             <com.google.android.material.textfield.TextInputLayout
+                android:textSize="15dp"
+                android:text="Jenis Kelamin"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
                 app:helperText="Jenis Kelamin"
                 android:layout_height="wrap_content">
                 <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_marginRight="100dp"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
                     android:hint="Jenis Kelamin"
                     android:id="@+id/jeniskelamin"
-                    android:layout_height="50dp"/>
+                    android:layout_height="60dp"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -125,11 +138,17 @@
             android:layout_height="wrap_content">
             <!--Jenis Akun -->
             <com.google.android.material.textfield.TextInputLayout
+                android:textSize="15dp"
+                android:textColorHint="@color/white"
+                android:hint="Jenis Akun"
                 android:layout_width="match_parent"
                 app:helperText="Jenis Akun"
                 android:layout_height="wrap_content">
                 <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_marginRight="100dp"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
                     android:hint="Jenis Akun"
                     android:id="@+id/jenisakun"
                     android:layout_height="50dp"/>
@@ -145,6 +164,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 app:passwordToggleEnabled="true"
                 android:layout_width="match_parent"
+                android:textColorHint="@color/white"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -163,6 +183,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 app:passwordToggleEnabled="true"
+                android:textColorHint="@color/white"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

@@ -22,6 +22,9 @@ public class Item_pesan implements Serializable {
 	@SerializedName("nama_pengirim")
 	private String namaPengirim;
 
+	@SerializedName("tanggal")
+	private String tanggal;
+
 	public void setId(String id){
 		this.id = id;
 	}
@@ -62,6 +65,14 @@ public class Item_pesan implements Serializable {
 		return namaPengirim;
 	}
 
+	public void setTanggal(String tanggal){
+		this.tanggal = tanggal;
+	}
+
+	public String getTanggal(){
+		return tanggal;
+	}
+
 	@Override
  	public String toString(){
 		return 
@@ -71,6 +82,7 @@ public class Item_pesan implements Serializable {
 			",pengirim = '" + pengirim + '\'' + 
 			",penerima = '" + penerima + '\'' + 
 			",nama_pengirim = '" + namaPengirim + '\'' + 
+			",tanggal = '" + tanggal + '\'' + 
 			"}";
 		}
 }

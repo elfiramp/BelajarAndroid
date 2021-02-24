@@ -37,7 +37,7 @@ public class Menu_Detail_Massage extends AppCompatActivity {
     TextView NamaPengirim;
     EditText IsiPesan;
     Button KirimPesan;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recyclerView1;
     ProgressDialog loading;
     String penerima,pengirim;
     SharedPrefManager sharedPrefManager;
@@ -51,17 +51,25 @@ public class Menu_Detail_Massage extends AppCompatActivity {
         IsiPesan=(EditText)findViewById(R.id.isipesan);
         KirimPesan=(Button)findViewById(R.id.kirimpesan);
         recyclerView=(RecyclerView)findViewById(R.id.listdetailpesan);
+        recyclerView1=(RecyclerView)findViewById(R.id.listdetailpesan1);
         Intent intent = getIntent();
        String id = intent.getStringExtra("ID");
         String isipesan = intent.getStringExtra("ISIPESAN");
         pengirim = intent.getStringExtra("PENGIRIM");
-        penerima = intent.getStringExtra("PENERIMA");
+        penerima = sharedPrefManager.getSPEmail();
         String namapengirim = intent.getStringExtra("NAMA_PENGIRIM");
+        NamaPengirim.setText(namapengirim);
 //        Toast.makeText(this, penerima+pengirim, Toast.LENGTH_SHORT).show();
         GridLayoutManager gridLayout=new GridLayoutManager(Menu_Detail_Massage.this,1);
         Log.d("isi",penerima+pengirim);
         recyclerView.setLayoutManager(gridLayout);
+        GridLayoutManager gridLayout1=new GridLayoutManager(Menu_Detail_Massage.this,1);
+        recyclerView1.setLayoutManager(gridLayout1);
+        loading.setMessage("Loading.....");
+        loading.setCancelable(true);
+        loading.show();
         TampilPesan(penerima,pengirim);
+        TampilPesan1(pengirim,penerima);
         KirimPesan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +77,48 @@ public class Menu_Detail_Massage extends AppCompatActivity {
                 String Pengirim=sharedPrefManager.getSPEmail();
                 String Namapengirim=sharedPrefManager.getSPNama();
                 Kirim(isi,Pengirim,pengirim,Namapengirim);
+            }
+        });
+    }
+
+    private void TampilPesan1(String pengirim, String penerima) {
+        loading.setCancelable(true);
+        loading.setMessage("Mohon Tunggu");
+        loading.show();
+        ApiServices api = InitRetrofit.getInstance().getApi();
+        Call<Response_Pesan> menuCall = api.TampilPesanDetail(penerima,pengirim);
+        menuCall.enqueue(new Callback<Response_Pesan>() {
+            @Override
+            public void onResponse(Call<Response_Pesan> call, Response<Response_Pesan> response) {
+                if (response.isSuccessful()){
+                    Log.d("response api", response.body().toString());
+                    List<Item_pesan> device= response.body().getPesan();
+                    boolean status = response.body().isStatus();
+                    if (status){
+                        loading.dismiss();
+                        adapter_pesan adapter = new adapter_pesan(Menu_Detail_Massage.this, device);
+                        recyclerView1.setAdapter(adapter);
+                    } else {
+                        try {
+                            loading.dismiss();
+//                            Toast.makeText(Menu_Detail_Massage.this, "Tidak Ada data Menu saat ini", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response_Pesan> call, Throwable t) {
+                try {
+                    loading.dismiss();
+//                    Toast.makeText(getActivity(), "Server Tidak Merespon", Toast.LENGTH_SHORT).show();
+                    t.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
@@ -91,6 +141,8 @@ public class Menu_Detail_Massage extends AppCompatActivity {
                             loading.dismiss();
                             Toast.makeText(Menu_Detail_Massage.this, ""+Berhasil_LOGIN, Toast.LENGTH_SHORT).show();
                             TampilPesan(penerima,pengirim);
+                            TampilPesan1(pengirim,penerima);
+                            IsiPesan.setText("");
                             Log.d("pesan",penerima+pengirim);
                         } else {
                             try {
@@ -139,7 +191,7 @@ public class Menu_Detail_Massage extends AppCompatActivity {
         loading.setMessage("Mohon Tunggu");
         loading.show();
         ApiServices api = InitRetrofit.getInstance().getApi();
-        Call<Response_Pesan> menuCall = api.TampilPesanDetail(penerima,pengirim);
+        Call<Response_Pesan> menuCall = api.TampilPesanDetail(pengirim,penerima);
         menuCall.enqueue(new Callback<Response_Pesan>() {
             @Override
             public void onResponse(Call<Response_Pesan> call, Response<Response_Pesan> response) {

@@ -29,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Menu_Utama extends AppCompatActivity {
-Button Log_Out;
+Button Log_Out, Termurah,Termahal,Terdekat,Rating;
 RecyclerView recyclerView;
 SharedPrefManager sharedPrefManager;
 ProgressDialog loading;
@@ -48,6 +48,10 @@ ImageView Profile,Help,Message;
 //                Keluar();
 //            }
 //        });
+        Termurah=(Button)findViewById(R.id.btn_temurah);
+        Termahal=(Button)findViewById(R.id.btn_termahal);
+        Terdekat=(Button)findViewById(R.id.btn_terdekat);
+        Rating=(Button)findViewById(R.id.btn_rating);
         Profile=(ImageView) findViewById(R.id.profile);
         Help=(ImageView) findViewById(R.id.help);
         Message=(ImageView) findViewById (R.id.massage);
@@ -72,6 +76,38 @@ ImageView Profile,Help,Message;
             @Override
             public void onClick(View v) {
                 goto_messege();
+            }
+        });
+        Termurah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Menu_Utama.this,Menu_Harga.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        Termahal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Menu_Utama.this,Menu_Termahal.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        Terdekat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Menu_Utama.this,Menu_Terdekat.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        Rating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Menu_Utama.this,Rating.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

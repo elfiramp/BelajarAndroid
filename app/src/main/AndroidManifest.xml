@@ -17,7 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EKostan">
-        <activity android:name=".Menu.Menu_Detail_Massage"></activity>
+        <activity android:name=".Menu.Rating"></activity>
+        <activity android:name=".Menu.Menu_Terdekat" />
+        <activity android:name=".Menu.Menu_Termahal" />
+        <activity android:name=".Menu.Menu_Harga" />
+        <activity android:name=".Menu.Menu_Detail_Massage" />
         <activity android:name=".Menu.Menu_Detail" />
         <activity android:name=".Menu.Menu_Rating" />
         <activity android:name=".Menu.DetailPesan" />

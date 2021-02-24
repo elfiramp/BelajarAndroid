@@ -4,12 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bckgroundijo"
     tools:context=".Menu.Menu_Utama"
     android:orientation="vertical">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <HorizontalScrollView
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
@@ -17,14 +24,13 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="150dp">
-<!--            <HorizontalScrollView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="100dp">-->
+
             <androidx.cardview.widget.CardView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                app:cardBackgroundColor="@color/transparant"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="100dp"
-                android:layout_height="120dp">
+                android:layout_height="140dp">
                 <TextView
                     android:gravity="center"
                     android:text="Profile"
@@ -39,42 +45,49 @@
                     android:src="@drawable/iconprofile" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_width="100dp"
-                android:layout_height="120dp">
+                app:cardBackgroundColor="@color/transparant"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="100dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="110dp"
+                android:layout_height="140dp">
                 <TextView
                     android:gravity="center"
                     android:text="Help"
                     android:layout_width="100dp"
                     android:layout_height="15dp"/>
+
                 <ImageView
                     android:id="@+id/help"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/iconhelp"
                     android:layout_width="100dp"
-                    android:layout_height="120dp"/>
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/info" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                app:cardBackgroundColor="@color/transparant"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="100dp"
-                android:layout_height="120dp">
+                android:layout_height="140dp">
                 <TextView
                     android:gravity="center"
                     android:text="Massage"
                     android:layout_width="100dp"
                     android:layout_height="15dp"/>
                 <ImageView
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:id="@+id/massage"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/iconchating"
                     android:layout_width="100dp"
                     android:layout_height="120dp"/>
             </androidx.cardview.widget.CardView>
-<!--            </HorizontalScrollView>-->
         </LinearLayout>
-
+        </HorizontalScrollView>-->
 
         <LinearLayout
             android:layout_marginTop="30dp"
@@ -94,24 +107,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn_temurah"
                         android:background="@drawable/m_button"
                         android:layout_marginRight="10dp"
                         android:text="Termurah"
                         android:layout_width="150dp"
                         android:layout_height="50dp"/>
                     <Button
+                        android:id="@+id/btn_termahal"
                         android:background="@drawable/m_button"
                         android:layout_marginRight="10dp"
                         android:text="Termahal"
                         android:layout_width="150dp"
                         android:layout_height="50dp"/>
                     <Button
+                        android:id="@+id/btn_terdekat"
                         android:background="@drawable/m_button"
                         android:layout_marginRight="10dp"
                         android:text="Terdekat"
                         android:layout_width="150dp"
                         android:layout_height="50dp"/>
                     <Button
+                        android:id="@+id/btn_rating"
                         android:background="@drawable/m_button"
                         android:layout_marginRight="10dp"
                         android:text="Rating"

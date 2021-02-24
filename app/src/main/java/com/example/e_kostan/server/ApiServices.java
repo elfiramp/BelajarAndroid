@@ -3,6 +3,7 @@ package com.example.e_kostan.server;
 import com.example.e_kostan.respon.Response_Kosan;
 import com.example.e_kostan.respon.Response_Pesan;
 import com.example.e_kostan.respon.Response_Rating;
+import com.example.e_kostan.respon.Response_User;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -88,5 +89,27 @@ public interface ApiServices {
     Call<Response_Rating> GetRating(
             @Field("id") String id_kosan
 
+    );
+
+    @GET("tampiluser.php")
+    Call <Response_User> Tampil_User();
+
+    @GET("tampil_murah.php")
+    Call <Response_Kosan> Tampil_Kosan_Murah();
+
+    @GET("tampil_termahal.php")
+    Call <Response_Kosan> Tampil_mahal();
+
+    @GET("rating.php")
+    Call <Response_Kosan> Rating();
+
+//    @GET("tampil_terdekat.php")
+//    Call<Response_Kosan> Tampil_Terdekat_mas();
+
+    @FormUrlEncoded
+    @POST("tampil_terdekat.php")
+    Call<Response_Kosan> Tampil_Terdekat_mas(
+            @Field("latitude") double latitude,
+            @Field("longitude") double longitude
     );
 }

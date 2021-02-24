@@ -15,10 +15,13 @@ import com.example.e_kostan.R;
 import com.example.e_kostan.Session.SharedPrefManager;
 import com.example.e_kostan.adapter.adapter_kosan;
 import com.example.e_kostan.adapter.adapter_pesan;
+import com.example.e_kostan.adapter.adapter_user;
 import com.example.e_kostan.model.Item_Kosan;
+import com.example.e_kostan.model.Item_User;
 import com.example.e_kostan.model.Item_pesan;
 import com.example.e_kostan.respon.Response_Kosan;
 import com.example.e_kostan.respon.Response_Pesan;
+import com.example.e_kostan.respon.Response_User;
 import com.example.e_kostan.server.ApiServices;
 import com.example.e_kostan.server.InitRetrofit;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -55,22 +58,22 @@ FloatingActionButton AddPesan;
             loading.setMessage("Mohon Tunggu");
             loading.show();
             ApiServices api = InitRetrofit.getInstance().getApi();
-            Call<Response_Pesan> menuCall = api.TampilPesan(Email);
-            menuCall.enqueue(new Callback<Response_Pesan>() {
+            Call<Response_User> menuCall = api.Tampil_User();
+            menuCall.enqueue(new Callback<Response_User>() {
                 @Override
-                public void onResponse(Call<Response_Pesan> call, Response<Response_Pesan> response) {
+                public void onResponse(Call<Response_User> call, Response<Response_User> response) {
                     if (response.isSuccessful()){
                         Log.d("response api", response.body().toString());
-                        List<Item_pesan> device= response.body().getPesan();
+                        List<Item_User> device= response.body().getUser();
                         boolean status = response.body().isStatus();
                         if (status){
                             loading.dismiss();
-                            adapter_pesan adapter = new adapter_pesan(Menu_Massage.this, device);
+                            adapter_user adapter = new adapter_user(Menu_Massage.this, device);
                             recyclerView.setAdapter(adapter);
                         } else {
                             try {
                                 loading.dismiss();
-                                Toast.makeText(Menu_Massage.this, "Tidak Ada data Menu saat ini", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Menu_Massage.this, "Tidak Ada data Pesan", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -79,7 +82,7 @@ FloatingActionButton AddPesan;
                 }
 
                 @Override
-                public void onFailure(Call<Response_Pesan> call, Throwable t) {
+                public void onFailure(Call<Response_User> call, Throwable t) {
                     try {
                         loading.dismiss();
 //                    Toast.makeText(getActivity(), "Server Tidak Merespon", Toast.LENGTH_SHORT).show();

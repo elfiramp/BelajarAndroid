@@ -129,7 +129,7 @@ public class TambahKosan extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         GridLayoutManager gridLayout=new GridLayoutManager(TambahKosan.this,1);
         recyclerView.setLayoutManager(gridLayout);
-//        getlokasi();
+        getlokasi();
     }
 
     private void uploadFile() {
@@ -409,7 +409,6 @@ public class TambahKosan extends AppCompatActivity {
                     Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
                     // Display in Toast
                     tampildata(location.getLatitude(),location.getLongitude());
-
                     Toast.makeText(TambahKosan.this,
 
                             "Lat : " + location.getLatitude() + " Long : " + location.getLongitude(),

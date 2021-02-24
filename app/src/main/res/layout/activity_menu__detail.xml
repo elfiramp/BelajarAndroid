@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
-    android:background="@color/main_Color"
+    android:background="@drawable/bckgroundijo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu.Menu_Detail">
@@ -15,22 +15,23 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/mainTextDark"
+        android:textColor="@color/c_white"
         android:textSize="25dp"
         android:text="Lokasi Kosan"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/transparant"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="600dp">
         <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="600dp"
         mapbox:mapbox_cameraTargetLat="-5.3833096"
         mapbox:mapbox_cameraTargetLng="105.2827215"
         mapbox:mapbox_cameraZoom="11" />
@@ -38,6 +39,7 @@
   <TextView
       android:layout_marginTop="10dp"
       android:layout_marginRight="10dp"
+      android:textColor="@color/c_white"
       android:layout_marginLeft="10dp"
       android:textSize="25dp"
       android:text="Detail Kosan"
